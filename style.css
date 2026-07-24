@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0f1013;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #191b21;
+    border-bottom: 1px solid #30323a;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+header p {
+    color: #b8b8b8;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.dashboard-card {
+    padding: 25px;
+    background-color: #1c1e24;
+    border: 1px solid #333640;
+    border-radius: 12px;
+}
+
+.dashboard-card h2 {
+    margin-bottom: 12px;
+}
+
+.dashboard-card p {
+    min-height: 55px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+    line-height: 1.5;
+}
+
+button {
+    padding: 10px 18px;
+    background-color: #f1c40f;
+    color: #111111;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffd633;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #888888;
+}#projectForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#projectInput {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    color: #f5f5f5;
+    background-color: #111318;
+    border: 1px solid #444854;
+    border-radius: 6px;
+}
+
+#projectInput:focus {
+    outline: 2px solid #f1c40f;
+    border-color: transparent;
+}
+
+#projectList {
+    list-style: none;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #15171c;
+    border: 1px solid #333640;
+    border-radius: 6px;
+}
+
+.delete-button {
+    padding: 7px 10px;
+    background-color: #b83b3b;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d34a4a;
+}#taskForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    color: #f5f5f5;
+    background-color: #111318;
+    border: 1px solid #444854;
+    border-radius: 6px;
+}
+
+#taskInput:focus {
+    outline: 2px solid #f1c40f;
+    border-color: transparent;
+}
+
+#taskList {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #15171c;
+    border: 1px solid #333640;
+    border-radius: 6px;
+}
+
+.task-name {
+    flex: 1;
+}
+
+.task-complete {
+    text-decoration: line-through;
+    color: #777777;
+}
+
+.complete-button {
+    padding: 7px 10px;
+    background-color: #2f855a;
+    color: white;
+}
+
+.complete-button:hover {
+    background-color: #38a169;
+}

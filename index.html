@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KuroKuma Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>KuroKuma Hub</h1>
+        <p>Your AI business control center</p>
+    </header>
+
+<main>
+
+    <section class="dashboard-overview">
+
+        <div class="stat-card">
+            <h3>📁 Projects</h3>
+            <p id="projectCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>✅ Tasks</h3>
+            <p id="taskCount">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>✔ Completed</h3>
+            <p id="completedCount">0</p>
+        </div>
+
+    </section>
+
+    <section class="dashboard-card projects-card">
+    <h2>Projects</h2>
+    <p>Add and track KuroKuma Labs projects.</p>
+
+    <form id="projectForm">
+        <input
+            type="text"
+            id="projectInput"
+            placeholder="Enter a project name"
+            required
+        >
+
+        <button type="submit">Add Project</button>
+    </form>
+
+    <ul id="projectList"></ul>
+</section>
+
+       <section class="dashboard-card tasks-card">
+    <h2>Tasks</h2>
+    <p>Add and track your current tasks.</p>
+
+    <form id="taskForm">
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a task"
+            required
+        >
+
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="taskList"></ul>
+</section>
+
+        <section class="dashboard-card">
+            <h2>Revenue</h2>
+            <p>Monitor income from KuroKuma Labs products.</p>
+            <button id="revenueButton">View Revenue</button>
+        </section>
+
+        <section class="dashboard-card">
+            <h2>AI Assistant</h2>
+            <p>Access future AI-powered business tools.</p>
+            <button id="assistantButton">Open Assistant</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>KuroKuma Labs — Hub Version 0.1</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
