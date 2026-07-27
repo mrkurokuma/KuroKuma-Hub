@@ -56,8 +56,9 @@ saveProjects();
 displayProjects();
 updateDashboard();
 
-projectInput.value = "";
-    projectInput.focus();
+taskInput.value = "";
+taskDate.value = "";
+taskInput.focus();
 });
 
 displayProjects();
@@ -68,6 +69,7 @@ displayProjects();
 
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
+const taskDate = document.getElementById("taskDate");
 const taskList = document.getElementById("taskList");
 
 let tasks =
@@ -86,6 +88,15 @@ function displayTasks() {
     tasks.forEach(function (task, index) {
         const listItem = document.createElement("li");
         listItem.className = "task-item";
+        const taskDueDate = document.createElement("span");
+
+if (task.dueDate) {
+    taskDueDate.textContent = "📅 " + task.dueDate;
+} else {
+    taskDueDate.textContent = "";
+}
+
+taskDueDate.className = "task-date";
 
         const taskName = document.createElement("span");
         taskName.textContent = task.name;
@@ -120,6 +131,7 @@ function displayTasks() {
 });
 
         listItem.appendChild(taskName);
+        listItem.appendChild(taskDueDate);
         listItem.appendChild(completeButton);
         listItem.appendChild(deleteButton);
         taskList.appendChild(listItem);
@@ -135,11 +147,11 @@ taskForm.addEventListener("submit", function (event) {
         return;
     }
 
-    tasks.push({
-        name: taskName,
-        completed: false
-    });
-
+ tasks.push({
+    name: taskName,
+    dueDate: taskDate.value,
+    completed: false
+});
    saveTasks();
 displayTasks();
 updateDashboard();
