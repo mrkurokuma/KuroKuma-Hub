@@ -14,6 +14,33 @@
 </head>
 
 <body>
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <h2>KuroKuma Hub</h2>
+
+        <nav>
+
+            <button class="nav-button" data-target="dashboard">📊 Dashboard</button>
+
+<button class="nav-button" data-target="projects">📁 Projects</button>
+
+<button class="nav-button" data-target="tasks">✅ Tasks</button>
+
+<button class="nav-button" data-target="revenue">💰 Revenue</button>
+
+<button class="nav-button" data-target="assistant">🤖 AI Assistant</button>
+
+<button class="nav-button">⚙️ Settings</button>
+
+        </nav>
+
+    </aside>
+
+    <div class="main-content">
+
     <header>
         <h1>KuroKuma Hub</h1>
         <p>Your AI business control center</p>
@@ -21,7 +48,7 @@
 
 <main>
 
-    <section class="dashboard-overview">
+    <section id="dashboard" class="dashboard-overview">
 
         <div class="stat-card">
             <h3>📁 Projects</h3>
@@ -40,7 +67,7 @@
 
     </section>
 
-    <section class="dashboard-card projects-card">
+    <section id="projects" class="dashboard-card projects-card">
     <h2>Projects</h2>
     <p>Add and track KuroKuma Labs projects.</p>
 
@@ -58,7 +85,7 @@
     <ul id="projectList"></ul>
 </section>
 
-       <section class="dashboard-card tasks-card">
+       <section id="tasks" class="dashboard-card tasks-card">
     <h2>Tasks</h2>
     <p>Add and track your current tasks.</p>
 
@@ -80,13 +107,13 @@
     <ul id="taskList"></ul>
 </section>
 
-        <section class="dashboard-card">
+        <section id="revenue" class="dashboard-card">
             <h2>Revenue</h2>
             <p>Monitor income from KuroKuma Labs products.</p>
             <button id="revenueButton">View Revenue</button>
         </section>
 
-        <section class="dashboard-card">
+        <section id="assistant" class="dashboard-card">
             <h2>AI Assistant</h2>
             <p>Access future AI-powered business tools.</p>
             <button id="assistantButton">Open Assistant</button>
@@ -98,5 +125,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+        </div>
+</div>
 </body>
 </html>

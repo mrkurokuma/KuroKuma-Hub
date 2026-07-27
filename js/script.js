@@ -180,3 +180,22 @@ function updateDashboard() {
 }
 
 updateDashboard();
+// Sidebar Navigation
+
+const navButtons = document.querySelectorAll(".nav-button");
+
+navButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const target = button.dataset.target;
+
+        if (!target) return;
+
+        document.getElementById(target).scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+});
