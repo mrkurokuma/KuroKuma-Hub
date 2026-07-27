@@ -46,6 +46,12 @@ body {
     background-color: #252832;
     border-color: #3b3f4a;
 }
+.nav-button.active {
+    background-color: #f1c40f;
+    color: #111111;
+    font-weight: bold;
+    border-color: #f1c40f;
+}
 
 .main-content {
     flex: 1;

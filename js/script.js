@@ -182,11 +182,20 @@ function updateDashboard() {
 updateDashboard();
 // Sidebar Navigation
 
+// Sidebar Navigation
+
 const navButtons = document.querySelectorAll(".nav-button");
+navButtons[0].classList.add("active");
 
 navButtons.forEach(button => {
 
     button.addEventListener("click", () => {
+
+        // Remove active class from every button
+        navButtons.forEach(btn => btn.classList.remove("active"));
+
+        // Highlight the clicked button
+        button.classList.add("active");
 
         const target = button.dataset.target;
 
