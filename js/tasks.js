@@ -14,6 +14,7 @@ Projects Module
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
 const taskDate = document.getElementById("taskDate");
+const taskSearch = document.getElementById("taskSearch");
 const taskList = document.getElementById("taskList");
 
 let tasks =
@@ -24,7 +25,32 @@ let tasks =
 function displayTasks() {
     taskList.innerHTML = "";
 
-    tasks.forEach(function (task, index) {
+    const searchText = taskSearch.value
+        .trim()
+        .toLowerCase();
+
+  const filteredTasks = tasks.filter(function (task) {
+    const words = task.name
+        .toLowerCase()
+        .split(/\s+/);
+
+    return words.some(function (word) {
+        return word.startsWith(searchText);
+    });
+});
+
+    if (filteredTasks.length === 0) {
+        const emptyMessage = document.createElement("li");
+        emptyMessage.textContent = "No tasks found.";
+        emptyMessage.className = "empty-message";
+        taskList.appendChild(emptyMessage);
+        return;
+    }
+
+    filteredTasks.forEach(function (task) {
+
+        const index = tasks.indexOf(task);
+
         const listItem = document.createElement("li");
         listItem.className = "task-item";
 
@@ -80,17 +106,18 @@ function displayTasks() {
         deleteButton.textContent = "Delete";
         deleteButton.className = "delete-button";
 
-       deleteButton.addEventListener("click", function () {
-    tasks.splice(index, 1);
-    saveTasks();
-    displayTasks();
-    updateDashboard();
-});
+        deleteButton.addEventListener("click", function () {
+            tasks.splice(index, 1);
+            saveTasks();
+            displayTasks();
+            updateDashboard();
+        });
 
         listItem.appendChild(taskName);
         listItem.appendChild(taskDueDate);
         listItem.appendChild(completeButton);
         listItem.appendChild(deleteButton);
+
         taskList.appendChild(listItem);
     });
 }
@@ -118,3 +145,6 @@ taskDate.value = "";
 taskInput.focus();
 });
 
+displayTasks();
+
+taskSearch.addEventListener("input", displayTasks);

@@ -158,6 +158,7 @@ button:hover {
 
 #projectInput,
 #projectSearch,
+#taskSearch,
 #taskInput,
 #taskDate {
     padding: 12px;
@@ -170,6 +171,7 @@ button:hover {
 
 #projectInput:focus,
 #projectSearch:focus,
+#taskSearch:focus,
 #taskInput:focus,
 #taskDate:focus {
     outline: 2px solid #f1c40f;
