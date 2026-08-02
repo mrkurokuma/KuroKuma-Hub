@@ -1,3 +1,12 @@
+/*
+==================================
+KuroKuma Hub
+KuroKuma Labs
+
+Projects Module
+==================================
+*/
+
 // Sidebar Navigation
 
 const navButtons = document.querySelectorAll(".nav-button");

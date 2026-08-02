@@ -1,3 +1,12 @@
+/*
+==================================
+KuroKuma Hub
+KuroKuma Labs
+
+Projects Module
+==================================
+*/
+
 // --------------------
 // Tasks tracker
 // --------------------
@@ -109,4 +118,3 @@ taskDate.value = "";
 taskInput.focus();
 });
 
-displayTasks();

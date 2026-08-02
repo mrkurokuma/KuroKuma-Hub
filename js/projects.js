@@ -1,3 +1,12 @@
+/*
+==================================
+KuroKuma Hub
+KuroKuma Labs
+
+Projects Module
+==================================
+*/
+
 // --------------------
 // Projects tracker
 // --------------------
@@ -58,4 +67,4 @@ projectInput.value = "";
 projectInput.focus();
 });
 
-displayProjects();
+

@@ -1,3 +1,12 @@
+/*
+==================================
+KuroKuma Hub
+KuroKuma Labs
+
+Projects Module
+==================================
+*/
+
 function saveProjects() {
     localStorage.setItem(
         "kuroKumaProjects",

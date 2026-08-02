@@ -1,3 +1,12 @@
+/*
+==================================
+KuroKuma Hub
+KuroKuma Labs
+
+Projects Module
+==================================
+*/
+
 // --------------------
 // Dashboard Statistics
 // --------------------
@@ -16,4 +25,3 @@ function updateDashboard() {
 
 }
 
-updateDashboard();
