@@ -157,6 +157,7 @@ button:hover {
 }
 
 #projectInput,
+#projectSearch,
 #taskInput,
 #taskDate {
     padding: 12px;
@@ -222,6 +223,15 @@ button:hover {
 .task-complete {
     text-decoration: line-through;
     color: #777777;
+}
+.task-overdue {
+    border: 2px solid #d9534f;
+    background-color: #2a1414;
+}
+
+.task-overdue .task-name {
+    color: #ff7b7b;
+    font-weight: bold;
 }
 
 .complete-button,
