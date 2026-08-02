@@ -169,6 +169,7 @@ button:hover {
 }
 
 #projectInput:focus,
+#projectSearch:focus,
 #taskInput:focus,
 #taskDate:focus {
     outline: 2px solid #f1c40f;
@@ -297,4 +298,10 @@ footer {
     .delete-button {
         width: 100%;
     }
+}
+
+.empty-message {
+    padding: 12px;
+    color: #888888;
+    text-align: center;
 }

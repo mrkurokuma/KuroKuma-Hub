@@ -25,7 +25,25 @@ let projects =
 function displayProjects() {
     projectList.innerHTML = "";
 
-    projects.forEach(function (project, index) {
+    const searchText = projectSearch.value
+        .trim()
+        .toLowerCase();
+
+    const filteredProjects = projects.filter(function (project) {
+        return project.toLowerCase().includes(searchText);
+    });
+
+    if (filteredProjects.length === 0) {
+        const emptyMessage = document.createElement("li");
+        emptyMessage.textContent = "No projects found.";
+        emptyMessage.className = "empty-message";
+        projectList.appendChild(emptyMessage);
+        return;
+    }
+
+    filteredProjects.forEach(function (project) {
+        const index = projects.indexOf(project);
+
         const listItem = document.createElement("li");
         listItem.className = "project-item";
 
@@ -36,19 +54,18 @@ function displayProjects() {
         deleteButton.textContent = "Delete";
         deleteButton.className = "delete-button";
 
-       deleteButton.addEventListener("click", function () {
-    projects.splice(index, 1);
-    saveProjects();
-    displayProjects();
-    updateDashboard();
-});
+        deleteButton.addEventListener("click", function () {
+            projects.splice(index, 1);
+            saveProjects();
+            displayProjects();
+            updateDashboard();
+        });
 
         listItem.appendChild(projectName);
         listItem.appendChild(deleteButton);
         projectList.appendChild(listItem);
     });
 }
-
 projectForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -67,4 +84,6 @@ projectInput.value = "";
 projectInput.focus();
 });
 
-
+projectSearch.addEventListener("input", function () {
+    displayProjects();
+});
