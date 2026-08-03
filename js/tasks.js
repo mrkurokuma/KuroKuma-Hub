@@ -37,18 +37,22 @@ function getDueStatus(dueDate) {
     );
 
     if (difference < 0) {
-        return "🔴 Overdue by " + Math.abs(difference) + " day(s)";
-    }
+    const overdueDays = Math.abs(difference);
 
-    if (difference === 0) {
-        return "🟡 Due Today";
-    }
+    return overdueDays === 1
+        ? "🔴 Overdue by 1 day"
+        : "🔴 Overdue by " + overdueDays + " days";
+}
 
-    if (difference === 1) {
-        return "🟠 Due Tomorrow";
-    }
+if (difference === 0) {
+    return "🟡 Due Today";
+}
 
-    return "🟢 Due in " + difference + " day(s)";
+if (difference === 1) {
+    return "🟠 Due Tomorrow";
+}
+
+return "🟢 Due in " + difference + " days";
 }
 
 
@@ -70,16 +74,35 @@ function displayTasks() {
     });
 });
 
-    if (filteredTasks.length === 0) {
-        const emptyMessage = document.createElement("li");
-        emptyMessage.textContent = "No tasks found.";
-        emptyMessage.className = "empty-message";
-        taskList.appendChild(emptyMessage);
-        return;
+const sortedTasks = [...filteredTasks];
+
+sortedTasks.sort(function (a, b) {
+
+    if (!a.dueDate && !b.dueDate) {
+        return 0;
     }
 
-    filteredTasks.forEach(function (task) {
+    if (!a.dueDate) {
+        return 1;
+    }
 
+    if (!b.dueDate) {
+        return -1;
+    }
+
+    return new Date(a.dueDate) - new Date(b.dueDate);
+
+});
+
+if (sortedTasks.length === 0) {
+    const emptyMessage = document.createElement("li");
+    emptyMessage.textContent = "No tasks found.";
+    emptyMessage.className = "empty-message";
+    taskList.appendChild(emptyMessage);
+    return;
+}
+
+sortedTasks.forEach(function (task) {
         const index = tasks.indexOf(task);
 
         const listItem = document.createElement("li");
@@ -107,11 +130,22 @@ function displayTasks() {
         const taskDueStatus = document.createElement("span");
 taskDueStatus.className = "task-status";
 taskDueStatus.textContent = getDueStatus(task.dueDate);
-        if (task.dueDate) {
-            taskDueDate.textContent = "📅 " + task.dueDate;
-        } else {
-            taskDueDate.textContent = "";
-        }
+       if (task.dueDate) {
+
+    const formattedDate = new Date(task.dueDate)
+        .toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        });
+
+    taskDueDate.textContent = "📅 " + formattedDate;
+
+} else {
+
+    taskDueDate.textContent = "";
+
+}
 
         taskDueDate.className = "task-date";
 
