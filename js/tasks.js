@@ -72,23 +72,15 @@ function displayTasks() {
         }
 
         const taskDueDate = document.createElement("span");
-
-       if (task.dueDate) {
-
-    const formattedDate = new Date(task.dueDate)
-        .toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric"
-        });
-
-    taskDueDate.textContent = "📅 " + formattedDate;
-
-} else {
-
-    taskDueDate.textContent = "";
-
-}
+       
+        const taskDueStatus = document.createElement("span");
+taskDueStatus.className = "task-status";
+taskDueStatus.textContent = getDueStatus(task.dueDate);
+        if (task.dueDate) {
+            taskDueDate.textContent = "📅 " + task.dueDate;
+        } else {
+            taskDueDate.textContent = "";
+        }
 
         taskDueDate.className = "task-date";
 
@@ -124,10 +116,11 @@ function displayTasks() {
             updateDashboard();
         });
 
-        listItem.appendChild(taskName);
-        listItem.appendChild(taskDueDate);
-        listItem.appendChild(completeButton);
-        listItem.appendChild(deleteButton);
+listItem.appendChild(taskName);
+listItem.appendChild(taskDueDate);
+listItem.appendChild(taskDueStatus);
+listItem.appendChild(completeButton);
+listItem.appendChild(deleteButton);
 
         taskList.appendChild(listItem);
     });
