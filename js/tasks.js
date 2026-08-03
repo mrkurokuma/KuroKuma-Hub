@@ -73,11 +73,22 @@ function displayTasks() {
 
         const taskDueDate = document.createElement("span");
 
-        if (task.dueDate) {
-            taskDueDate.textContent = "📅 " + task.dueDate;
-        } else {
-            taskDueDate.textContent = "";
-        }
+       if (task.dueDate) {
+
+    const formattedDate = new Date(task.dueDate)
+        .toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        });
+
+    taskDueDate.textContent = "📅 " + formattedDate;
+
+} else {
+
+    taskDueDate.textContent = "";
+
+}
 
         taskDueDate.className = "task-date";
 
