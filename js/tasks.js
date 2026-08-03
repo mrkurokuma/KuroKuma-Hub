@@ -17,8 +17,39 @@ const taskDate = document.getElementById("taskDate");
 const taskSearch = document.getElementById("taskSearch");
 const taskList = document.getElementById("taskList");
 
-let tasks =
-    JSON.parse(localStorage.getItem("kuroKumaTasks")) || [];
+function getDueStatus(dueDate) {
+    if (!dueDate) {
+        return "";
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dueParts = dueDate.split("-");
+    const due = new Date(
+        Number(dueParts[0]),
+        Number(dueParts[1]) - 1,
+        Number(dueParts[2])
+    );
+
+    const difference = Math.round(
+        (due - today) / (1000 * 60 * 60 * 24)
+    );
+
+    if (difference < 0) {
+        return "🔴 Overdue by " + Math.abs(difference) + " day(s)";
+    }
+
+    if (difference === 0) {
+        return "🟡 Due Today";
+    }
+
+    if (difference === 1) {
+        return "🟠 Due Tomorrow";
+    }
+
+    return "🟢 Due in " + difference + " day(s)";
+}
 
 
 

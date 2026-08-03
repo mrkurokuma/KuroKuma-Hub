@@ -3,9 +3,15 @@
 KuroKuma Hub
 KuroKuma Labs
 
-Projects Module
+Storage and Shared Data
 ==================================
 */
+
+let projects =
+    JSON.parse(localStorage.getItem("kuroKumaProjects")) || [];
+
+let tasks =
+    JSON.parse(localStorage.getItem("kuroKumaTasks")) || [];
 
 function saveProjects() {
     localStorage.setItem(

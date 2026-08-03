@@ -17,8 +17,7 @@ const projectSearch = document.getElementById("projectSearch");
 const projectList = document.getElementById("projectList");
 
 
-let projects =
-    JSON.parse(localStorage.getItem("kuroKumaProjects")) || [];
+
 
 
 
